@@ -1,0 +1,128 @@
+.dashboard {
+  max-width: 850px;
+  margin: auto;
+  padding: 64px 24px;
+}
+
+.eyebrow {
+  color: #70e0c4;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+h1 {
+  font-size: clamp(40px, 7vw, 64px);
+  line-height: 1.08;
+  margin: 20px 0;
+}
+
+.subtitle {
+  max-width: 580px;
+  color: #aebbd0;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.panel {
+  margin-top: 28px;
+  padding: 28px;
+  border: 1px solid #2b3c53;
+  border-radius: 20px;
+  background: #142033;
+}
+
+.panel h2 {
+  margin: 18px 0 12px;
+}
+
+.panel p {
+  line-height: 1.7;
+  color: #bac7d9;
+}
+
+.panel .eyebrow {
+  color: #70e0c4;
+}
+
+.badge {
+  display: inline-block;
+  background: #293653;
+  color: #c6d4ff;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+button {
+  margin-top: 16px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 10px;
+  background: #70e0c4;
+  color: #10231f;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #91ecd5;
+}
+
+button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.result {
+  border-color: #367b6c;
+}
+
+.evidence {
+  border-top: 1px solid #2b3c53;
+  padding-top: 16px;
+}
+
+.error {
+  color: #ffaaaa;
+}
+
+footer {
+  margin-top: 32px;
+  color: #8e9db2;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.team-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid #2b3c53;
+}
+
+.team-status {
+  display: block;
+  margin-top: 6px;
+  color: #aebbd0;
+  font-size: 14px;
+}
+
+.team-row button {
+  margin-top: 0;
+}
+
+@media (max-width: 500px) {
+  .team-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #0b1321;
+  color: #f2f6fc;
+  font-family: Arial, sans-serif;
+}
