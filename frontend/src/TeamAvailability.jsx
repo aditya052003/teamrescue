@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const API = "http://localhost:5000";
+const API = "https://teamrescue-backend.onrender.com";
 
 export default function TeamAvailability({ onAvailabilityChange }) {
   const [team, setTeam] = useState([]);

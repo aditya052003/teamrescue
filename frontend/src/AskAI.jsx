@@ -19,7 +19,7 @@ export default function AskAI() {
     setEvidence([]);
 
     try {
-      const response = await fetch("http://localhost:5000/api/ask", {
+      const response = await fetch("https://teamrescue-backend.onrender.com/api/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: question.trim() }),

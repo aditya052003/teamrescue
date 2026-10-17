@@ -16,7 +16,7 @@ export default function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/recommend"
+        "https://teamrescue-backend.onrender.com/api/recommend"
       );
 
       const data = await response.json();
