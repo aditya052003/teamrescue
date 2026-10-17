@@ -7,7 +7,14 @@ import { registerHandoffRoutes } from "./handoffs.js";
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      process.env.FRONTEND_URL,
+    ].filter(Boolean),
+  })
+);
 app.use(express.json({ limit: "16kb" }));
 
 const apiKey = process.env.GEMINI_API_KEY?.trim();
@@ -28,11 +35,20 @@ function logError(label, error) {
 
 async function startServer() {
   const db = await FalkorDB.connect({
-    socket: {
-      host: "127.0.0.1",
-      port: 6379,
-    },
+  socket: {
+    host: process.env.FALKORDB_HOST || "127.0.0.1",
+    port: Number(process.env.FALKORDB_PORT || 6379),
+  },
+  username: process.env.FALKORDB_USERNAME || undefined,
+  password: process.env.FALKORDB_PASSWORD || undefined,
+});
+ db.on("error", (error) => {
+    console.error(
+      "FalkorDB connection error:",
+      error.code || "Connection interrupted"
+    );
   });
+
 
   const graph = db.selectGraph("teamrescue");
 
@@ -526,10 +542,14 @@ Do not use another person's resolved incident as evidence of the owner's experie
 
   registerHandoffRoutes(app, query, getServiceContext);
 
-  app.listen(5000, "127.0.0.1", () => {
-    console.log("Backend: http://localhost:5000");
+  const port = Number(process.env.PORT || 5000);
+
+  app.listen(port, "0.0.0.0", () => {
+    console.log(`Backend listening on port ${port}`);
   });
 }
+
+ 
 
 startServer().catch((error) => {
   logError("Backend startup failed:", error);
